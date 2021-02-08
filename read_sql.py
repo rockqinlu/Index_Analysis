@@ -16,10 +16,13 @@ sql = "SELECT * FROM GL_ACCT_ALL"
 
 # 执行sql
 cursor.execute(sql)
+# 调阅存储过程
+cursor.callproc()
+
 result = cursor.fetchall()
 conn.commit()
 
-#执行结果转化为dataframe
+# 执行结果转化为dataframe
 df = pd.DataFrame(list(result))
 # 关闭游标
 cursor.close()

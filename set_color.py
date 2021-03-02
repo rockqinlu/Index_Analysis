@@ -7,7 +7,7 @@ db_user = 'root'
 # 数据库密码
 db_password = ''
 # 数据库ip地址
-db_host = 'localhost'
+db_host = '127.0.0.1'
 # 端口号
 db_port = 3306
 # 数据库
@@ -17,7 +17,7 @@ engine = create_engine(f'mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_p
 sql_zcfz = "SELECT T.STAT_DT, T.OP_ORG_NUM,T.TYPE, T.NBR, T.NAME, T.LAST_BAL, T.BAL  " \
            "FROM tmp_zcfz T WHERE T.CURR_CD = \'HRMB\'  " \
            "AND T.ORG_LEVEL = \'3\' AND T.STAT_DT = DATE(\'2020-12-31\') AND LEFT(T.OP_ORG_NUM,6) = \'BSBK99\'"
-# 通过pandas读取 资产负债基础数据
+
 data_zcfz = pd.read_sql(sql_zcfz, engine)
 color_gradation = {1: '#227700', 2: '#55AA00', 3: '#77FF00', 4: '#BBFF66', 5: '#CCFF99',
                    10: '#FFCCCC', 11: '#FF8888', 12: '#FF0000', 13: '#AA0000', 14: '#880000'}
@@ -80,3 +80,5 @@ df_zcfz_z2 = df_zcfz_tmp2.abs()
 df_new = (df_zcfz_z - df_zcfz_z2)/df_zcfz_z
 df_new.style.apply(style_apply, colors=color_gradation, axis=1).to_excel('D:\\test333.xlsx', sheet_name='环比',
                                                                          engine='openpyxl')
+
+

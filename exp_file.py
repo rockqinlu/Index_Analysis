@@ -16,7 +16,7 @@ db_name = 'rcjc'
 engine = create_engine(f'mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}', echo=True)
 
 # 报表基础参数
-p_stat_dt = "\'2020-11-30\'"
+p_stat_dt = "\'2020-12-31\'"
 p_curr_cd = "\'HRMB\'"
 p_peroid = 'M'
 org_dict = {'BSBK0002': '蒙商银行营业部', 'BSBK9901': '包头分行', 'BSBK9902': '赤峰分行', 'BSBK9903': '巴彦淖尔分行',

@@ -4,15 +4,15 @@ from sqlalchemy import create_engine
 
 # 参数
 # 报表路径、Sheet页名称
-p_report_path = 'D:\\model_5241_6904071M.xls'
+p_report_path = 'D:\\20210228_ST.xls'
 p_report_sheet_name = 'GL_SUBJ_MONTH'
 # p_curr_cd = 'HRMB'
 # 数据库用户名
 win_user = 'root'
 # 数据库密码
-win_password = ''
+win_password = '123456'
 # 数据库ip地址
-win_host = 'localhost'
+win_host = '127.0.0.1'
 # 端口号
 win_port = 3306
 # 数据库
@@ -56,17 +56,3 @@ des_df.to_sql('gl_subj_month', engine,
                   "GL_ACCT": sqlalchemy.types.String(length=32),
                   "GL_BAL_TYPE_CD": sqlalchemy.types.String(length=2)
               })
-print('-----------------------------   SQL DATA  -------------------------------------------------------------------')
-# sql语句
-sql_zcfz = "SELECT T.* FROM v_zcfz_detail T WHERE T.CURR_CD = \'HRMB\' " \
-           " AND T.OP_ORG_NUM = 'BSBK9901' AND T.STAT_DT = DATE(\'2020-12-31\')"
-# 通过pandas读取 机构数据
-data_zcfz = pd.read_sql(sql_zcfz, engine)
-print('----------------------------report 4级机构拼接 ----------------------------------------------------------------')
-# result = pd.merge(des_df, data_org, how='inner', left_on='OP_ORG_NUM', right_on='ORG_NUM')
-# result.to_excel('D:\\test11.xls', sheet_name='Sheet1')
-# 通过pandas读取 科目层级数据
-# data_acct = pd.read_sql(sql_acct, engine)
-# result2 = pd.merge(result, data_acct, how='inner', left_on='GL_ACCT', right_on='GL_ACCT3')
-# result2.to_excel('D:\\test22.xls', sheet_name='Sheet1')
-print(data_zcfz.info())

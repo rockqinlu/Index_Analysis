@@ -4,8 +4,8 @@ from sqlalchemy import create_engine
 
 # 参数
 # 报表路径、Sheet页名称
-p_report_path = 'D:\\202011_avg.xls'
-p_report_sheet_name = 'month_indic_avg'
+p_report_path = 'D:\\202102_avg.xls'
+p_report_sheet_name = 'gl_subj_month_avg'
 # p_curr_cd = 'HRMB'
 # 数据库用户名
 win_user = 'root'

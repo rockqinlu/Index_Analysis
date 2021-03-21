@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 
 # 参数
 # 报表路径、Sheet页名称
-p_report_path = 'D:\\202102_avg.xls'
+p_report_path = 'D:\\Data_File\\20210228_avg.xls'
 p_report_sheet_name = 'gl_subj_month_avg'
 # p_curr_cd = 'HRMB'
 # 数据库用户名
@@ -16,7 +16,7 @@ win_host = '127.0.0.1'
 # 端口号
 win_port = 3306
 # 数据库
-win_test = 'rcjc'
+win_test = 'regular_monitoring'
 engine = create_engine(f'mysql+pymysql://{win_user}:{win_password}@{win_host}:{win_port}/{win_test}', echo=True)
 # ---------------------------------------! GO GO GO !------------------------------------------------------------------
 # report to DF
@@ -49,13 +49,13 @@ des_df = avg_df.loc[:, ['STAT_DT', 'OP_ORG_NUM', 'CURR_CD', 'GL_ACCT', 'GL_BAL_T
                         'DR_AMT', 'CR_AMT',
                         'DR_BAL', 'CR_BAL',
                         'NBR']]
-des_df.to_sql('gl_subj_month_avg', engine,
+des_df.to_sql('t09_gl_subj_avg_month', engine,
               if_exists='append', index=False,
               dtype={
                   "STAT_DT": sqlalchemy.types.DATE,
-                  "OP_ORG_NUM": sqlalchemy.types.String(length=32),
+                  "OP_ORG_NUM": sqlalchemy.types.String(length=20),
                   "CURR_CD": sqlalchemy.types.String(length=8),
-                  "GL_ACCT": sqlalchemy.types.String(length=32),
+                  "GL_ACCT": sqlalchemy.types.String(length=20),
                   "GL_BAL_TYPE_CD": sqlalchemy.types.String(length=2)
               })
-
+print('*'*15 + '  Complete data import !!   ' + '*'*15)

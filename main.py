@@ -14,3 +14,6 @@ if __name__ == '__main__':
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+p_stat_dt = "\'2021-01-31\'"
+print(p_stat_dt)
+print(p_stat_dt[1:11])

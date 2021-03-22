@@ -85,11 +85,11 @@ pd_exp_lr = pd_exp_lr.rename(columns=org_dict)
 # pd_exp_lr['均值'] = pd_exp_lr.mean(axis=1)
 # pd_exp_lr.to_excel('D:\\test\\利润表' + p_stat_dt + '.xls', sheet_name='利润表', na_rep=0, float_format="%.2f")
 # print('----------------------------业务状况输出 ----------------------------------------------------------------')
-#pd_exp_ywzk = pd.pivot_table(data_ywzk, values=['1期初借方余额', '2期初贷方余额', '3借方发生额', '4贷方发生额',
+# pd_exp_ywzk = pd.pivot_table(data_ywzk, values=['1期初借方余额', '2期初贷方余额', '3借方发生额', '4贷方发生额',
 #                                                '5借方余额', '6贷方余额'],
 #                             index=['科目号', '科目名称', '科目级别', '币种', '粒度'], columns='ORG_NUM',
 #                             aggfunc=np.sum, fill_value=0)
-#pd_exp_ywzk = pd_exp_ywzk.rename(columns=org_dict)
+# pd_exp_ywzk = pd_exp_ywzk.rename(columns=org_dict)
 # pd_exp_ywzk.to_excel('D:\\test\\业务状况表' + p_stat_dt + '.xls', sheet_name='业务状况表', na_rep=0, float_format="%.2f")
 # print('----------------------------衍生指标输出 ----------------------------------------------------------------')
 pd_exp_ys = pd.pivot_table(data_ys, values='IND_VAL', index=['指标ID', '指标名称'], columns='ORG_NUM',
